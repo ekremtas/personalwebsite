@@ -1,1 +1,7 @@
-{"title": "MY TİTLE", "changeLanguage": "Change Language"}
+{
+  "welcome_part_1": "Welcome to ",
+  "welcome_part_2": "ekremtascomtr!",
+  "welcome_part_3": "",
+
+  "changeLanguage": "Change Language"
+}

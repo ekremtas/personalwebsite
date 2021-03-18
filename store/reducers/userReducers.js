@@ -1,7 +1,7 @@
 import Actions from '../actions/types'
 
 const initialState = {
-  user: {name: 'name is empty', surname: 'surname is empty'}
+  user: {name: 'EKrem', surname: 'TAŞ'}
 }
 
 const userReducer = (state = initialState, action) => {
