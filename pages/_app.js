@@ -47,7 +47,7 @@ function MyApp({Component, pageProps, themeKind, language, languagetwo}) {
 MyApp.getInitialProps = async appContext => {
   const themeKind = await cookies(appContext.ctx).themeKind
   const language = await cookies(appContext.ctx).language
-  const languagetwo = await cookies(appContext.ctx)
+  const languagetwo = await appContext.ctx.req?.headers?.cookie
   return {
     languagetwo: languagetwo,
     language: language,
