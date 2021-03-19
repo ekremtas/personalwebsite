@@ -12,7 +12,7 @@ import {lightTheme, darkTheme} from '../styles/theme'
 import cookies from 'next-cookies'
 import {i18n} from '../config/next-i18next'
 
-function MyApp({Component, pageProps, themeKind, language}) {
+function MyApp({Component, pageProps, themeKind, language, languagetwo}) {
   const [theme, setTheme] = useState(themeKind)
   useEffect(async () => {
     await i18n.changeLanguage(language)
@@ -23,7 +23,7 @@ function MyApp({Component, pageProps, themeKind, language}) {
     }
   }, [])
   //const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
-
+  console.error(themeKind, language, languagetwo)
   return (
     <ThemeProvider theme={(theme === 'dark' && darkTheme) || lightTheme}>
       <Provider store={store}>
@@ -47,7 +47,9 @@ function MyApp({Component, pageProps, themeKind, language}) {
 MyApp.getInitialProps = async appContext => {
   const themeKind = (await cookies(appContext.ctx).themeKind) || 'dark'
   const language = (await cookies(appContext.ctx).language) || 'tr'
+  const languagetwo = await appContext.ctx?.headers?.cookie
   return {
+    languagetwo: languagetwo,
     language: language,
     themeKind: themeKind,
     ...(await App.getInitialProps(appContext))
@@ -58,7 +60,8 @@ MyApp.propTypes = {
   Component: PropTypes.elementType,
   pageProps: PropTypes.object,
   themeKind: PropTypes.string,
-  language: PropTypes.string
+  language: PropTypes.string,
+  languagetwo: PropTypes.string
 }
 
 export default appWithTranslation(MyApp)
