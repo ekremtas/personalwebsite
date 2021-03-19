@@ -30,7 +30,7 @@ export default function Home({setTheme}) {
                 Router.push('/user')
               }}
               color={'secondary'}>
-              kullanıcı Bilgilerini Gör
+              kullanıcı Bilgilerini Görmek için Tıklayın.
             </Button>
             {'   '}
             <Button
