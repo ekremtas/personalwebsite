@@ -36,27 +36,21 @@ export default function Home({setTheme}) {
             <Button
               onClick={() => {
                 i18n.language == 'en'
-                  ? (i18n.changeLanguage('tr'),
-                    (document.cookie =
-                      'language="tr"; path=/; expires=Thu, 01 Jan 2022 00:00:01 GMT'))
-                  : (i18n.changeLanguage('en'),
-                    (document.cookie =
-                      'language="en"; path=/; expires=Thu, 01 Jan 2022 00:00:01 GMT'))
+                  ? (i18n.changeLanguage('tr'), localStorage.setItem('language', 'tr'))
+                  : (i18n.changeLanguage('en'), localStorage.setItem('language', 'en'))
               }}>
               {t('changeLanguage')}
             </Button>
             <Button
               onClick={() => {
-                document.cookie =
-                  'themeKind="dark"; path=/; expires=Thu, 01 Jan 2022 00:00:01 GMT'
+                localStorage.setItem('theme', 'dark')
                 setTheme('dark')
               }}>
               DARK
             </Button>
             <Button
               onClick={() => {
-                document.cookie =
-                  'themeKind="light"; path=/; expires=Thu, 01 Jan 2022 00:00:01 GMT'
+                localStorage.setItem('theme', 'light')
                 setTheme('light')
               }}>
               LIGHT
