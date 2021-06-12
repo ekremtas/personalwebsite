@@ -9,21 +9,26 @@ import {ThemeProvider} from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Head from 'next/head'
 import {lightTheme, darkTheme} from '../styles/theme'
-import cookies from 'next-cookies'
 import {i18n} from '../config/next-i18next'
 
-function MyApp({Component, pageProps, themeKind, language, languagetwo}) {
-  const [theme, setTheme] = useState(themeKind)
+function MyApp({Component, pageProps}) {
+  const [theme, setTheme] = useState('')
+  const [loading, setLoading] = useState(true)
+
   useEffect(async () => {
-    await i18n.changeLanguage(language)
+    const language = localStorage.getItem('language')
+    const theme = localStorage.getItem('theme')
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side')
-    if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles)
-    }
+
+    jssStyles && jssStyles.parentElement.removeChild(jssStyles)
+    theme && (await setTheme(theme))
+    language && (await i18n.changeLanguage(language))
+
+    setLoading(false)
   }, [])
-  //const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
-  console.error(themeKind, language, languagetwo)
+
+  if (loading) return <h1>LOADING</h1>
   return (
     <ThemeProvider theme={(theme === 'dark' && darkTheme) || lightTheme}>
       <Provider store={store}>
@@ -44,24 +49,11 @@ function MyApp({Component, pageProps, themeKind, language, languagetwo}) {
   )
 }
 
-MyApp.getInitialProps = async appContext => {
-  const themeKind = await cookies(appContext.ctx).themeKind
-  const language = await cookies(appContext.ctx).language
-  const languagetwo = await appContext.ctx.req?.headers?.cookie
-  return {
-    languagetwo: languagetwo,
-    language: language,
-    themeKind: themeKind,
-    ...(await App.getInitialProps(appContext))
-  }
-}
+MyApp.getInitialProps = async appContext => ({...(await App.getInitialProps(appContext))})
 
 MyApp.propTypes = {
   Component: PropTypes.elementType,
-  pageProps: PropTypes.object,
-  themeKind: PropTypes.string,
-  language: PropTypes.string,
-  languagetwo: PropTypes.string
+  pageProps: PropTypes.object
 }
 
 export default appWithTranslation(MyApp)
