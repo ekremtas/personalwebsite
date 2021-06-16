@@ -36,12 +36,55 @@ export default function User() {
           width={500}
           height={500}
         />
-        <img
-          src='https://images.unsplash.com/photo-1592289701772-4a4a8949f8ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80'
-          alt='Picture of ekrem'
+        <Image
+          src={
+            'https://images.unsplash.com/photo-1592289701772-4a4a8949f8ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80'
+          }
+          alt='Picture of the author'
           width={500}
           height={500}
         />
+        <Image
+          src={
+            'https://images.unsplash.com/photo-1592289701772-4a4a8949f8ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80'
+          }
+          alt='Picture of the author'
+          width={500}
+          height={500}
+        />
+        <Image
+          src={
+            'https://images.unsplash.com/photo-1592289701772-4a4a8949f8ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80'
+          }
+          alt='Picture of the author'
+          width={500}
+          height={500}
+        />
+        <Image
+          src={
+            'https://images.unsplash.com/photo-1592289701772-4a4a8949f8ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80'
+          }
+          alt='Picture of the author'
+          width={500}
+          height={500}
+        />
+        <Image
+          src={
+            'https://images.unsplash.com/photo-1592289701772-4a4a8949f8ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80'
+          }
+          alt='Picture of the author'
+          width={500}
+          height={500}
+        />
+        <Image
+          src={
+            'https://images.unsplash.com/photo-1592289701772-4a4a8949f8ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80'
+          }
+          alt='Picture of the author'
+          width={500}
+          height={500}
+        />
+
         <Link href='/'>
           <h2 style={{cursor: 'pointer'}}>Go HomePage with Link</h2>
         </Link>
