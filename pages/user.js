@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react'
 import {useSelector} from 'react-redux'
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import {useTranslation} from '../config/next-i18next'
 import styles from '../styles/Home.module.css'
 
@@ -26,6 +28,20 @@ export default function User() {
             {user.name}! {user.surname}
           </a>
         </h1>
+        <Image
+          src={
+            'https://images.unsplash.com/photo-1592289701772-4a4a8949f8ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80'
+          }
+          alt='Picture of the author'
+          width={500}
+          height={500}
+        />
+        <img
+          src='https://images.unsplash.com/photo-1592289701772-4a4a8949f8ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80'
+          alt='Picture of ekrem'
+          width={500}
+          height={500}
+        />
         <Link href='/'>
           <h2 style={{cursor: 'pointer'}}>Go HomePage with Link</h2>
         </Link>
